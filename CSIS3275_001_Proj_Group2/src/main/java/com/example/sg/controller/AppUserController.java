@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.sg.model.AppUser;
 import com.example.sg.model.AppUserRepository;
+import com.example.sg.model.Job;
 import com.example.sg.model.TypeRepository;
 import com.example.sg.model.UserTypeRepository;
 
@@ -40,17 +41,17 @@ public class AppUserController {
 	TypeRepository typeRepo;
 	
 	@GetMapping("/app_users")
-	public ResponseEntity<List<AppUser>> getAllAppUsers(@RequestParam(required=false) String email){
+	public ResponseEntity<List<AppUser>> getAllAppUsers(
+			@RequestParam(required=false) String lastName){
 		
 		try {
 			List<AppUser> appUsers = new ArrayList<AppUser>();
 			
-			if (email==null) {
+			if (lastName == null) {
 				appUserRepo.findAll().forEach(appUsers::add);
+			} else {
+				appUserRepo.findByLastNameContainingIgnoreCase(lastName).forEach(appUsers::add);
 			}
-//			else {
-//				appUserRepo.findByEmail(email).forEach(appUsers::add);
-//			}
 			
 			if (appUsers.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

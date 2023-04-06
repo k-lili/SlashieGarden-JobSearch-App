@@ -44,14 +44,10 @@ public class ApplicationController {
 	UserTypeRepository userTypeRepo;
 	
 	@GetMapping("/applications")
-	public ResponseEntity<List<Application>> getAllApplication(@RequestParam(required = false) String id) {
+	public ResponseEntity<List<Application>> getAllApplication() {
 		try {
 			List<Application> applications = new ArrayList<>();
-			if (id == null) {
-				applicationRepo.findAll().forEach(applications::add);
-			} else {
-				applicationRepo.findById(id);
-			}
+			applicationRepo.findAll().forEach(applications::add);
 
 			if (applications.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

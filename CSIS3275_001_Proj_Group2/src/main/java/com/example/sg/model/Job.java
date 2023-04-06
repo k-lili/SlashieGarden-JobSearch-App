@@ -55,7 +55,7 @@ public class Job {
 	@Column(name = "hourly_wage")
 	private double hrWage;
 	
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false) //cascade = CascadeType.MERGE
 	@JoinColumn(name = "user_type_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	@JsonProperty("user_type_id")
@@ -64,7 +64,7 @@ public class Job {
 	@Column(name = "create_date_time")
 	private String createdDateTime;
 	
-	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false) //cascade = CascadeType.MERGE
 	@JoinColumn(name = "job_status_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	@JsonProperty("job_status")

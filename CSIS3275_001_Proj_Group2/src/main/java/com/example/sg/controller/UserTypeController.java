@@ -40,15 +40,11 @@ public class UserTypeController {
 	TypeRepository typeRepo;
 	
 	@GetMapping("/user_types")
-	public ResponseEntity<List<UserType>> getAllUserTypes(@RequestParam(required=false) String userIdStr){
-		
+	public ResponseEntity<List<UserType>> getAllUserTypes(){
 		try {
 			
 			List<UserType> userTypes = new ArrayList<UserType>();
-			
-			if (userIdStr==null) {
-				userTypeRepo.findAll().forEach(userTypes::add);
-			}
+			userTypeRepo.findAll().forEach(userTypes::add);
 			
 			if(userTypes.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);

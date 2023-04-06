@@ -49,10 +49,11 @@ public class JobController {
 			@RequestParam(required=false) String jobTitle) {
 		try {
 			List<Job> jobs = new ArrayList<>();
+			
 			if (jobTitle == null) {
 				jobRepo.findAll().forEach(jobs::add);
 			} else {
-				jobRepo.findByJobTitle(jobTitle).forEach(jobs::add);
+				jobRepo.findByJobTitleContainingIgnoreCase(jobTitle).forEach(jobs::add);
 			}
 
 			if (jobs.isEmpty()) {

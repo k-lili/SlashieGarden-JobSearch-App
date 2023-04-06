@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {
 	List<AppUser> findByFirstName(String firstName);
-	List<AppUser> findByLastName(String lastName);
-	List<AppUser> findByGender(String gender);
+//	List<AppUser> findByLastName(String lastName);
+	List<AppUser> findByLastNameContainingIgnoreCase(String lastName);
 	Optional<AppUser> findByEmail(String email);
 	List<AppUser> findByMobileNum(String mobileNum);
 	
