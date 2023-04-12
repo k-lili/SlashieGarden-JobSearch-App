@@ -66,7 +66,7 @@ public class AppUser {
 		this.email = email;
 		this.mobileNum = mobileNum;
 		this.isValid = true;
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyy HH:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 		this.createdDateTime = LocalDateTime.now().format(dateTimeFormatter);
 	}
 	

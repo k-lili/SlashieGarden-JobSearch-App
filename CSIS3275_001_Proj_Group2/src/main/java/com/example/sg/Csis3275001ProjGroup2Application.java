@@ -46,38 +46,10 @@ public class Csis3275001ProjGroup2Application {
 			typeRepo.save(Type.APPLICANT);
 			typeRepo.save(Type.ADMINISTRATOR);
 			
-//			AppUser appUser1 = new AppUser();
-//			AppUser appUser2 = new AppUser();
-//			AppUser appUser3 = new AppUser();
-//			
-//			appUser1.setEmail("appUser1@sgmail.com");
-//			appUser2.setEmail("appUser2@sgmail.com");
-//			appUser3.setEmail("appUser3@sgmail.com");
-//			
-//			appUserRepo.save(appUser1);
-//			appUserRepo.save(appUser2);
-//			appUserRepo.save(appUser3);
-//			
-//			Job jobTest1 = new Job("Title 1", "Description 1", "04-01-2023", LocalTime.of(10, 30),
-//					LocalTime.of(12, 0), appUser1);
-//			jobTest1.setStatus(Status.OPEN);
-//			Status.OPEN.addJob(jobTest1);
-//			Job jobTest2 = new Job("Title 2", "Description 2", "05-05-2023", LocalTime.of(14, 00),
-//					LocalTime.of(16, 30), appUser2);
-//			jobTest2.setStatus(Status.OPEN);
-//			Status.OPEN.addJob(jobTest2);
-//			
-//			jobRepo.save(jobTest1);
-//			jobRepo.save(jobTest2);
-//			
-//			Application application1 = new Application(jobTest2, Status.APPLIED);
-//			
-//			applicationRepo.save(application1);
-			
-			AppUser appUser1 = new AppUser("Test1", "Test2", "male", "123@gmail.com", "777");
-			AppUser appUser2 = new AppUser("Test2", "Test3", "female", "12333@gmail.com", "77777");
-			AppUser appUser3 = new AppUser("Test4", "Test4", "male", "333@gmail.com", "44");
-			AppUser appUser4 = new AppUser("Test5", "Test5", "female", "abc@gmail.com", "33");
+			AppUser appUser1 = new AppUser("Herbert", "Lam", "male", "hlam@gmail.com", "(604)123-4567");
+			AppUser appUser2 = new AppUser("Karli", "Li", "female", "kli@gmail.com", "(604)234-5678");
+			AppUser appUser3 = new AppUser("Karl", "Chau", "male", "kchau@gmail.com", "(778)345-6789");
+			AppUser appUser4 = new AppUser("Chi Ting", "Chui", "female", "ctchui@gmail.com", "(604)456-7890");
 			
 			appUserRepo.save(appUser1);
 			appUserRepo.save(appUser2);

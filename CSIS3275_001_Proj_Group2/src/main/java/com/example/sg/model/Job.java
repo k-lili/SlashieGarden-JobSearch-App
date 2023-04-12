@@ -55,7 +55,7 @@ public class Job {
 	@Column(name = "hourly_wage")
 	private double hrWage;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) //cascade = CascadeType.MERGE
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_type_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	@JsonProperty("user_type_id")
@@ -64,13 +64,13 @@ public class Job {
 	@Column(name = "create_date_time")
 	private String createdDateTime;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false) //cascade = CascadeType.MERGE
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false) 
 	@JoinColumn(name = "job_status_id", nullable = false)
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
 	@JsonProperty("job_status")
 	private Status status;
 	
-	@OneToMany(mappedBy = "job", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "job", fetch = FetchType.LAZY) 
 	@JsonIgnore
 	private Set<Application> applications = new HashSet<>();
 	
@@ -89,7 +89,7 @@ public class Job {
 		this.location = location;
 		this.hrWage = hrWage;
 		
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyy HH:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 		this.createdDateTime = LocalDateTime.now().format(dateTimeFormatter);
 		
 		this.status = Status.OPEN;

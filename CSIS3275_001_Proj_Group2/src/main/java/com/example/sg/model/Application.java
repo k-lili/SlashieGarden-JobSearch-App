@@ -65,7 +65,7 @@ public class Application {
 		this.userType = userType;
 		this.skills = skills;
 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyy HH:mm:ss");
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 		this.createdDateTime = LocalDateTime.now().format(dateTimeFormatter);
 	}
 

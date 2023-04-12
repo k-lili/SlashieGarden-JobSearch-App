@@ -86,7 +86,7 @@ public class ApplicationController {
 			applicationRepo.save(newApplication);
 			jobData.get().addApplication(newApplication);
 			statusData.get().addApplication(newApplication);
-			userTypeData.get().addApplication(newApplication);
+			userTypeData.get().addApplication(newApplication);//wrong info
 			return new ResponseEntity<>(newApplication, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

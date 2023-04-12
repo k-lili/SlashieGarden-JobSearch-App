@@ -51,9 +51,11 @@ public class JobController {
 			List<Job> jobs = new ArrayList<>();
 			
 			if (jobTitle == null) {
+				System.out.println("jobTitle null");
 				jobRepo.findAll().forEach(jobs::add);
 			} else {
 				jobRepo.findByJobTitleContainingIgnoreCase(jobTitle).forEach(jobs::add);
+				System.out.println("JobTitle search triggered!");
 			}
 
 			if (jobs.isEmpty()) {
